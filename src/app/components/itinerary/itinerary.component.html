@@ -1,0 +1,57 @@
+<div class="row group-container" cdkDropListGroup>
+    <!-- <div class="col-3" style="overflow: auto;height: 100%;">
+        <div style="width: 200vw;height: 100%;">
+            <div >
+                    <div *ngFor="let iternaryItem of recomendedItem.iternary">
+                            <div cdkDropList [cdkDropListData]="iternaryItem" class="example-list"
+                                (cdkDropListDropped)="drop($event)">
+                                <ng-container *ngIf="iternaryItem.type == 'inAir'">
+                                    <app-flight-details cdkDrag [data]="iternaryItem.item" [title] = "inboundTitle"></app-flight-details>
+                                </ng-container>
+                                <ng-container *ngIf="iternaryItem.type == 'outAir'">
+                                    <app-flight-details cdkDrag [data]="iternaryItem.item" [title] = "outboundTitle"></app-flight-details>
+                                </ng-container>
+                                <ng-container *ngIf="iternaryItem.type == 'hotel'">
+                                    <app-hotel-details cdkDrag [data]="iternaryItem.item"></app-hotel-details>
+                                </ng-container>
+                                <ng-container *ngIf="iternaryItem.type == 'cabs'">
+                                        <app-car-details cdkDrag [data]="iternaryItem.item"></app-car-details>
+                                </ng-container>
+                                <ng-container *ngIf="iternaryItem.type == 'events'">
+                                        <app-events-details cdkDrag [data]="iternaryItem.item"></app-events-details>
+                                </ng-container>
+                            </div>
+                        </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="col-12" style="overflow: auto;height: 100%;">
+        <div style="width: 200vw;height: 100%;">
+            <div class="iternary-container">
+                <div *ngFor="let itinerary of itineraryList; let index = index" class="iternaryItem-container">
+                    <div *ngFor="let iternaryItem of itinerary.iternary">
+                        <div cdkDropList [cdkDropListData]="iternaryItem" class="example-list"
+                            (cdkDropListDropped)="drop($event)">
+                            <ng-container *ngIf="iternaryItem.type == 'inAir'">
+                                <app-flight-details cdkDrag [data]="iternaryItem.item" [title] = "inboundTitle"></app-flight-details>
+                            </ng-container>
+                            <ng-container *ngIf="iternaryItem.type == 'outAir'">
+                                <app-flight-details cdkDrag [data]="iternaryItem.item" [title] = "outboundTitle"></app-flight-details>
+                            </ng-container>
+                            <ng-container *ngIf="iternaryItem.type == 'hotel'">
+                                <app-hotel-details cdkDrag [data]="iternaryItem.item"></app-hotel-details>
+                            </ng-container>
+                            <ng-container *ngIf="iternaryItem.type == 'cabs'">
+                                    <app-car-details cdkDrag [data]="iternaryItem.item"></app-car-details>
+                            </ng-container>
+                            <ng-container *ngIf="iternaryItem.type == 'events'">
+                                    <app-events-details cdkDrag [data]="iternaryItem.item"></app-events-details>
+                            </ng-container>
+                        </div>
+                    </div>
+                    <button class="button button primary" (click) = goToCheckout()>Checkout</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<ng-container *ngIf="!isSearched">
+  <div class="container">
+    <div style='font-size: 65px; background: #0384fc; color: white;' class="text-center jumbotron">One Click Travel
+    </div>
+    <form [formGroup]="searchFormGroup">
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group">
+            <label for="startDate">Start date:</label>
+            <input type="date" class="form-control" id="startDate" placeholder="Start date" aria-describedby="Start date" formControlName="startDate">
+            <small>Please provide start date</small>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group">
+            <label for="endDate">End date:</label>
+            <input type="date" class="form-control" id="endDate" placeholder="End date" aria-describedby="End date" formControlName="endDate">
+            <small>Please provide end date</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4">
+          <div class="form-group">
+            <label for="origin">Origin:</label>
+            <input type="text" class="form-control" id="origin" placeholder="Origin" aria-describedby="Origin" formControlName="origin">
+            <small>Please provide Origin</small>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="Destination">Destination:</label>
+            <input type="text" class="form-control" id="Destination" placeholder="Destination" aria-describedby="Destination" formControlName="destination">
+            <small>Please Provide Destination</small>
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="numOfPassenger">Number of Passengers:</label>
+            <input type="text" class="form-control" id="numOfPassenger" placeholder="Number of Passengers" aria-describedby="Number of Passengers" formControlName="numbOfPassenger">
+            <small>Please Provide Number of Passengers</small>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div style='margin-top: 40px;' class="col-md-12 col-lg-12 col-xs-12 text-center">
+          <button class="btn btn-primary search" type="submit" (click)='searchItinerary()'>Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="isSearched">
+  <app-itinerary></app-itinerary>
+</ng-container>
